@@ -1,0 +1,67 @@
+// category
+[
+    "Phone" : [
+        "Android", "ios"
+    ]
+]
+
+// brand 
+[
+    "Google", "Samsung", "Apple"
+]
+
+//product
+[
+  {
+    "id": 1,
+    "name": "Google Pixel",
+    "brand": "Google",
+    "category": "Android",
+    "parent_category": "Phone",
+    "breadcrumb": ["Phone", "Android"],
+    "specification": {
+      "processor": "Snapdragon 821",
+      "battery": "2700",
+      "size": "5"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S8",
+    "brand": "Samsung",
+    "category": "Android",
+    "parent_category": "Phone",
+    "breadcrumb": ["Phone", "Android"],
+    "specification": {
+      "processor": "Snapdragon 835",
+      "battery": "3000",
+      "size": "5.8"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Apple iPhone 7",
+    "brand": "Apple",
+    "category": "ios",
+    "parent_category": "Phone",
+    "breadcrumb": ["Phone", "ios"],
+    "specification": {
+      "processor": "Apple A10 Fusion",
+      "battery": "1960",
+      "size": "4.7"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Apple iPhone XR",
+    "brand": "Apple",
+    "category": "ios",
+    "parent_category": "Phone",
+    "breadcrumb": ["Phone", "ios"],
+    "specification": {
+      "processor": "Apple A12 Bionic",
+      "battery": "2942",
+      "size": "6.1"
+    }
+  }
+]
