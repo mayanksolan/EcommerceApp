@@ -14,18 +14,14 @@ const Brand = require("./models/Brand");
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
-let db = mongoose.connection;
-db.once("open", () => console.log("Connected To Mongo DB"));
-db.on("error", err => console.log(err));
-
 // app.get("/", (req, res) => {
 //   res.send("req.body.name");
 // });
 
 app.get("/", (req, res) => {
   try {
-    Brand.find({}, function(err, brands) {
-      res.json(brands);
+    Product.find({}, function(err, products) {
+      res.json(products);
     });
   } catch (error) {
     console.error(error.message);
@@ -34,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 // define routes
-//app.use("/api/products", require("./routes/api/products"));
+// app.use("/api/products", require("./routes/api/products"));
 // app.use("/api/auth", require("./routes/api/auth"));
 // app.use("/api/profile", require("./routes/api/profile"));
 // app.use("/api/posts", require("./routes/api/posts"));
