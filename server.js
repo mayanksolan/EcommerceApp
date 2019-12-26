@@ -10,24 +10,23 @@ connectDB();
 const Product = require("./models/Product");
 const Brand = require("./models/Brand");
 
-mongoose.connection.on("open", function() {
-  console.log("mongodb is connected!!");
-});
-
 //Init middleware
 app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
+
+let db = mongoose.connection;
+db.once("open", () => console.log("Connected To Mongo DB"));
+db.on("error", err => console.log(err));
 
 // app.get("/", (req, res) => {
 //   res.send("req.body.name");
 // });
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   try {
-    const brand = await Brand.find({}, function(err, collection) {
-      console.log(collection.length);
+    Brand.find({}, function(err, brands) {
+      res.json(brands);
     });
-    res.json(brand);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");
