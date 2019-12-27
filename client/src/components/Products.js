@@ -1,7 +1,39 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
+import axios from "axios";
 
-function Products() {
-  return <div>Products</div>;
+export default class Products extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      productsData: []
+    };
+  }
+
+  fetchProducts = async () => {
+    try {
+      const products = await axios.get("/api/products");
+      console.log(products);
+      this.setState({ productsData: products.data }, () => {
+        console.log(this.state.productsData[0].specification.processor);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  componentDidMount() {
+    this.fetchProducts();
+  }
+
+  render() {
+    if (this.state.productsData.length > 0) {
+      return (
+        <div>
+          Here is some data:{" "}
+          {this.state.productsData[0].specification.processor}
+        </div>
+      );
+    }
+    return <div>Loading...</div>;
+  }
 }
-
-export default Products;
