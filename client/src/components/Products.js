@@ -17,7 +17,7 @@ export default class Products extends Component {
         console.log(this.state.productsData[2].specification.processor);
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.msg);
     }
   };
 
