@@ -21,7 +21,7 @@
   "homepage": "https://github.com/mayanksolan/EcommerceApp#readme",
   "dependencies": {
     "config": "^3.2.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.8.3",
     "request": "^2.88.0"
   },
